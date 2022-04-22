@@ -45,11 +45,13 @@ wywołaniu z nazwą pliku gir generuje projekt z wiązaniami C#.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
+# provide libdir consistent with .xslt files paths defined in configure
 %configure \
 %if "%{_host_cpu}" != "x32"
 	--host=%{_host} \
-	--build=%{_host}
+	--build=%{_host} \
 %endif
+	--libdir=%{_prefix}/lib
 
 %{__make}
 
